@@ -10,26 +10,24 @@ class Course():
         self.credit = credit 
 
 
-        self.students = {} # id of students in the class
+        self.students = [] # id of students in the class
 
     def add_student(self, student_id, mark = None):
         
-        self.students[student_id] = Mark 
+        self.students[student_id] = mark 
 
     def get_avg_mark(self):
          num = 0 
          sum = 0 
          
-        for k, v in self.students:
-           
-
-            if v :
-                sum =+ v 
+         for k,v in self.students:
+             if v :
+                sum += v 
                 num += 1
-        if num:
-            return sum / num
-         
-        return None
+         if num:
+              return sum / num
+        
+         return None
 
     def __str__(self):
         s = "=================================\n"
