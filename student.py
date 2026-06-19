@@ -39,10 +39,10 @@ class Student():
     
         if  0 <= grade <= 100:
             self.grades[course_id] = grade
-            return true 
+            return True
         else:
             print(f" [!] Invalid grade '{grade}' must be between 0 and 100")
-            return false
+            return False
 
     #--------------------------------------------------------------
 
@@ -139,7 +139,30 @@ class Student():
         to convert the student data into a line for a .txt file 
         """
 
-        # we will use | as the separator instead of comma 
+        # we use | as a separator instead of comma
 
-        grades_str = 
+        grades_str = ""
+        for id, grade in self.grades.items():
+            grades_str = grades_str + f"{id}:{grade}"
+
+        if grades_str:
+            grades_str = grades_str[:-1] 
+            # meaning everythin but the last character 
+
+            return f"{self.student_id}|{self.student_name}|{self.email_id}|{grades_str}"
         
+
+#--------------------------------------------------------------
+# __str__ "what python would pring when you print(student)"
+#---------------------------------------------------------------
+
+def __str__(self):
+    """
+    this function would reutrn a short summary of the student
+    """
+  
+    avg = self.get_avg_grade()
+    return (
+        f"Student [{self.student_id}] {self.name} "
+        f"| Email :{self.email_id} | Avarage Grade : {avg}"
+    )
