@@ -108,7 +108,7 @@ class Course:
 
         lecturer_display = self.lecturer_id if self.lecturer_id else "Not Assigned"
         print(f"  Lecturer : {lecturer_display}")
-        print(f"  Students : ({self.get_count()})")
+        print(f"  Students : ({self.get_count()}):")
 
 
         if not self.enrolled_students:
@@ -116,10 +116,10 @@ class Course:
         else:
             # a loop to list all enrolled students 
 
-            for student_id in self.enrolled_students:
-                print(f" [{self.enrolled_students.index(student_id)}] {student_id}")
+            for code in self.enrolled_students:
+                print(f" [{self.enrolled_students.index(code)}] {code}")
 
-        print(f" \n {'=' * 50 }")
+        print(f"{'=' * 50 }\n")             
 
 
 #--------------------------------------------------------------
@@ -144,7 +144,7 @@ class Course:
     def __str__(self):
         """Short readable description of the course."""
         return(
-            f"Course [{self.course_id}] 'self.course_name' "
+            f"Course [{self.course_id}] {self.course_name} "
             f" | Credits: {self.credits} | Enrolled Students: {self.get_count()}"
 
             )

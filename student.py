@@ -108,7 +108,7 @@ class Student():
         print(f"\n{'=' * 50 }")
         print(f" TRANSCRIPT -- {self.student_name} ({self.student_id})")
         print(f" EMAIL : {self.email_id}")
-        print(f"\n{'=' * 50 }")
+        print(f"{'=' * 50 }\n")
 
 
         if not self.grades:
@@ -128,7 +128,7 @@ class Student():
         letter = self.get_grade_letter()
         print(f"\n{'-' * 50 }")
         print(f" Avarage Grade : {avarage}   -> ({letter})")
-        print(f"{'=' * 50 }")
+        print(f"{'=' * 50 }\n")
 
 #--------------------------------------------------------------
 # METHOD 5 : to_txt_row
@@ -145,13 +145,13 @@ class Student():
 
         grades_str = ""
         for id, grade in self.grades.items():
-            grades_str = grades_str + f"{id}:{grade}"
+            grades_str = grades_str + f"{id}:{grade};"
 
         if grades_str:
             grades_str = grades_str[:-1] 
             # meaning everythin but the last character 
 
-            return f"{self.student_id}|{self.student_name}|{self.email_id}|{grades_str}"
+        return f"{self.student_id}|{self.student_name}|{self.email_id}|{grades_str}"
         
 
 #--------------------------------------------------------------
@@ -165,6 +165,6 @@ def __str__(self):
   
     avg = self.get_avg_grade()
     return (
-        f"Student [{self.student_id}] {self.name} "
-        f"| Email :{self.email_id} | Avarage Grade : {avg}"
+        f"Student [{self.student_id}] {self.name} |"
+        f" Email :{self.email_id} | Avarage Grade : {avg}"
     )
