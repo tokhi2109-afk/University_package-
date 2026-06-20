@@ -1,4 +1,5 @@
-print(f"\n{'=' * 50 }")
-print(f" TRANSCRIPT -- oijn2erfojnweg ijwnbrfjnwoejngojnwefg ")
-print(f" EMAIL : ijnworghowjngweg")
-print(f"{'=' * 50 }\n ")
+  
+dic = [ 12312,123123,531,12345,54213,12455412,1245,5412,2145,14,21234,512124,5]
+
+for code in dic:
+    print(f" [{dic.index(code)}] {code}")

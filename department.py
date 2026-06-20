@@ -1,0 +1,247 @@
+
+"""
+department.py
+-------------
+Defines the Department class, which acts as the central controller
+for the University Management System.
+ """
+
+
+from student import Student
+from course import Course
+from lecturer import Lecturer
+
+ 
+
+class Department:
+    """this would the the main 'manager' class for this project
+       it woudl hold the dictionaries of all students, courses, 
+        and lecturers and would coordingate between them """
+    
+
+    def __init__(self, name):
+        """initialises the Department"""
+
+        self.name = name
+
+        #use dictionaries(key -> object) for lookups by id 
+        self.students = {}
+        self.courses = {}
+        self.lecturer = {}
+
+
+#------------------------------------------------------------------
+# student_management
+#------------------------------------------------------------------
+
+    #adding a student
+    def add_student(self, student_id, student_name, email_id):
+        
+        #prevent duplicate id entry 
+        if student_id in self.students:
+            print(f"  [!] Student ID '{student_id}' already exists.")
+            return None
+        
+        student = Student(student_id, student_name, email_id)
+        self.students[student_id] = student
+        print(f" Student '{student_name} has been added with ID '{student_id}'.")
+        return student
+
+
+    #removing a student
+    def remove_student(self, student_id):
+        """ return true if successfully removed 
+            False if did not exist/not found """
+        
+        if student_id not in self.students:
+            print(f" [!] student ID '{student_id}' not found")
+
+            return False 
+        
+        removed = self.students.pop(student_id) #removes and returns the item 
+        print(f" Student' {removed.name} removed.")
+
+        return True 
+    
+
+    def get_student(self, student_id):
+        """ search and return Student Objevt by ID 
+        returns None if no ID found """
+
+        return self.students.get(student_id)
+    
+
+
+
+
+
+    def add_course(self, course_id, course_name, credits):
+        """ create and register a new course """
+
+        if course_id in self.courses:
+            print(f" [!] Course '{course_id}' already exists.")
+            return None
+            
+        course = Course(course_id, course_name, credits)
+        self.courses[course_id] = course
+        print(f".  Course '{course_name}' has been added.")
+        return course 
+    
+
+    def get_course(self, course_id):
+        """ Search a couse by its ID"""
+        return self.courses.get(course_id)
+    
+
+
+#------------------------------------------------------------------
+# Lecturer_management
+#------------------------------------------------------------------
+
+
+    def add_lecturer(self, lecturer_id, name, email, specialisation):
+        """Create and reguster a new lecturer"""
+
+
+        if lecturer_id in self.lecturers:
+            print(f" [!] Lecturer ID '{lecturer_id}' already exists")
+            return None
+        
+        lecturer = Lecturer(lecturer_id, name, email, specialisation)
+        self.lecturers[lecturer_id] = lecturer 
+        print(f" Lecturer '{name}' added with ID '{lecturer_id}")
+        return lecturer 
+    
+    def get_lecturer(self, lecturer_id):
+        """search a lecturer by ID """
+        return self.lecturers.get(lecturer_id)
+    
+
+#------------------------------------------------------------------
+# Cross_entry_operations
+#------------------------------------------------------------------
+
+
+     
+    def course_enroll_student_(self, student_id, course_id):
+        """enroll student in a course and return true if successful """
+
+
+        student = self.get_student(student_id)
+        course = self.get_course(course_id)
+
+        #ensure both exist before doing anything
+
+        if not student:
+            print(f" [!] Student '{student_id} NOT FOUND.")
+            return False 
+        
+        if not course:
+            print(f" [!] Course '{course_id} NOT FOUND.")
+            return False 
+        
+        return course.enroll_student(student_id)
+    
+
+
+    def course_assign_lecturer(self, lecturer_id, course_id):
+        """ assign a lecturer to a course and update both objects 
+        return true if successful """
+
+
+        lecturer = self.get_lecturer(lecturer_id)
+        course = self.get_course(course_id)
+
+
+        if not lecturer:
+            print(f" [!] Lecturer '{lecturer_id}' NOT FOUND.")
+            return False 
+        
+        if not course:
+            print(f" [!] Course '{course_id}' NOT FOUND.")
+            return False 
+        
+        course.assign_lecturer(lecturer_id)
+        lecturer.assign_course(course_id)
+        return True 
+    
+
+    def record_grade(self, student_id, course_id, grade):
+        """ record a student's geade for a specific course
+        return true if the grade was saved """
+
+        student = self.get_student(student_id)
+        if not student:
+            print(f" [!] Stucent '{student_id}' NOT FOUND.")
+            return False 
+        
+        course = self.get_course(course_id)
+        if not course:
+            print(f" [!] Course '{course_id}' NOT FOUND.")
+            return False 
+        
+        if student_id not in course.enrolled_students:
+            print(f" [!] Student '{student_id}' is not enrolled in '{course_id}")
+            return False
+        
+        return student.add_grade(course_id, grade)
+    
+
+
+#------------------------------------------------------------------
+# Listing and summary 
+#------------------------------------------------------------------
+
+
+    def list_all_students(self):
+        """ print of all students in the department."""
+
+        print(f"\n {'=' * 55}")
+        print(f"  ALL STUDENTS - {self.name}")
+        print(f"{'=' * 55}")
+
+        if not self.students:
+            print("   No Students Registered Yet!")
+        else:
+            for i in self.students:
+                print(f" [{self.students.index(i)}] {i}")
+                
+        print(f"{'=' * 55}\n")
+
+    def list_all_cources(self):
+        """ print all courses in the department """
+        print(f"\n{'=' * 55}")
+        print(f"  ALL STUDENTS - {self.name}")
+        print(f"{'=' * 55}")
+        if not self.courses:
+            print(". No Courses Registered Yet.")
+        else:
+            for i in self.cources:
+                print(f" [{self.courses.index(i)}] {i}")
+        print(f"{'=' * 55} \n ")
+
+
+    def list_all_lecturers(self):
+      
+        """ print all courses in the department """
+        print(f"\n{'=' * 55}")
+        print(f"  ALL LECTURERS - {self.name}")
+        print(f"{'=' * 55}")
+        if not self.lecturers:
+            print(". No Lecturers Registered Yet.")
+        else:
+            for i in self.lecturer:
+                print(f" [{self.lecturer.index(i)}] {i}")
+        print(f"{'=' * 55} \n ")
+
+
+    def department_summary(self):
+        """ print a summary of the department """
+        """ returns number of students, cources and lecturers """
+        
+        print(f"\n{'=' * 55}")
+        print(f"  DEPARTMENT: {self.name}")
+        print(f"  Students  : {len(self.students)}")
+        print(f"  Cources  : {len(self.Cources)}")
+        print(f"  Lecturers  : {len(self.Lecturer)}")
+        print(f"{'=' * 55} \n ")

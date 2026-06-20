@@ -9,7 +9,7 @@ Defines the student class for the university package
 class Student():
     """ Represents a student enrolled in the university system"""
 
-    def __init__(self, student_id, student_name, email_id ):
+    def __init__(self, student_id, student_name, email_id):
         
         """ 
         initialises a new student object with student_id,

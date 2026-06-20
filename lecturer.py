@@ -6,7 +6,7 @@ A lecturer has an ID, name, specialisation, and a list of courses they teach.
 """
 
 
-class lecturer:
+class Lecturer:
     """ represents a lecturer at the university """
 
     def __init__(self, lecturer_id, name, email, specialisation):
