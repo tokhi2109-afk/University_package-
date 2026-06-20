@@ -1,8 +1,8 @@
 """
 course.py
-
+---------
 Defines the course class for the university package
-
+this course has course id, name, credits and a list of enrolled students 
 """
 
 
