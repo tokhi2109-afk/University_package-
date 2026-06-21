@@ -39,12 +39,12 @@ class Department:
         
         #prevent duplicate id entry 
         if student_id in self.students:
-            print(f"  [!] Student ID '{student_id}' already exists.")
+            print(f"  \n\n[!] Student ID '{student_id}' already exists.\n\n")
             return None
         
         student = Student(student_id, student_name, email_id)
         self.students[student_id] = student
-        print(f" Student '{student_name} has been added with ID '{student_id}'.")
+        print(f" \n\nStudent '{student_name} has been added with ID '{student_id}'.\n\n")
         return student
 
 
@@ -54,12 +54,12 @@ class Department:
             False if did not exist/not found """
         
         if student_id not in self.students:
-            print(f" [!] student ID '{student_id}' not found")
+            print(f" \n\n[!] student ID '{student_id}' not found\n\n")
 
             return False 
         
         removed = self.students.pop(student_id) #removes and returns the item 
-        print(f" Student' {removed.name} removed.")
+        print(f" \n\nStudent' {removed.name} removed.\n\n")
 
         return True 
     
@@ -79,12 +79,12 @@ class Department:
         """ create and register a new course """
 
         if course_id in self.courses:
-            print(f" [!] Course '{course_id}' already exists.")
+            print(f" \n\n[!] Course '{course_id}' already exists.\n\n")
             return None
             
         course = Course(course_id, course_name, credits)
         self.courses[course_id] = course
-        print(f".  Course '{course_name}' has been added.")
+        print(f"  \n\nCourse '{course_name}' has been added.\n\n")
         return course 
     
 
@@ -104,12 +104,12 @@ class Department:
 
 
         if lecturer_id in self.lecturers:
-            print(f" [!] Lecturer ID '{lecturer_id}' already exists")
+            print(f" \n\n[!] Lecturer ID '{lecturer_id}' already exists\n\n")
             return None
         
         lecturer = Lecturer(lecturer_id, name, email, specialisation)
         self.lecturers[lecturer_id] = lecturer 
-        print(f" Lecturer '{name}' added with ID '{lecturer_id}")
+        print(f" \n\nLecturer '{name}' added with ID '{lecturer_id}\n\n")
         return lecturer 
     
     def get_lecturer(self, lecturer_id):
@@ -133,11 +133,11 @@ class Department:
         #ensure both exist before doing anything
 
         if not student:
-            print(f" [!] Student '{student_id} NOT FOUND.")
+            print(f" \n\n[!] Student '{student_id} NOT FOUND.\n\n")
             return False 
         
         if not course:
-            print(f" [!] Course '{course_id} NOT FOUND.")
+            print(f" \n\n[!] Course '{course_id} NOT FOUND.\n\n")
             return False 
         
         return course.enroll_student(student_id)
@@ -154,11 +154,11 @@ class Department:
 
 
         if not lecturer:
-            print(f" [!] Lecturer '{lecturer_id}' NOT FOUND.")
+            print(f" \n\n[!] Lecturer '{lecturer_id}' NOT FOUND.\n\n")
             return False 
         
         if not course:
-            print(f" [!] Course '{course_id}' NOT FOUND.")
+            print(f" \n\n[!] Course '{course_id}' NOT FOUND.\n\n")
             return False 
         
         course.assign_lecturer(lecturer_id)
@@ -172,16 +172,16 @@ class Department:
 
         student = self.get_student(student_id)
         if not student:
-            print(f" [!] Student '{student_id}' NOT FOUND.")
+            print(f" \n\n[!] Student '{student_id}' NOT FOUND.\n\n")
             return False 
         
         course = self.get_course(course_id)
         if not course:
-            print(f" [!] Course '{course_id}' NOT FOUND.")
+            print(f" \n\n[!] Course '{course_id}' NOT FOUND.\n\n")
             return False 
         
         if student_id not in course.enrolled_students:
-            print(f" [!] Student '{student_id}' is not enrolled in '{course_id}")
+            print(f" \n\n[!] Student '{student_id}' is not enrolled in '{course_id}\n\n")
             return False
         
         return student.add_grade(course_id, grade)
@@ -196,7 +196,7 @@ class Department:
     def list_all_students(self):
         """ print of all students in the department."""
 
-        print(f"\n {'=' * 55}")
+        print(f"\n\n\n {'=' * 55}")
         print(f"  ALL STUDENTS - {self.name}")
         print(f"{'=' * 55}")
 
@@ -206,11 +206,11 @@ class Department:
             for i in self.students:
                 print(f" [{self.students.index(i)}] {i}")
                 
-        print(f"{'=' * 55}\n")
+        print(f"{'=' * 55}\n\n\n")
 
     def list_all_cources(self):
         """ print all courses in the department """
-        print(f"\n{'=' * 55}")
+        print(f"\n\n{'=' * 55}")
         print(f"  ALL STUDENTS - {self.name}")
         print(f"{'=' * 55}")
         if not self.courses:
@@ -218,14 +218,14 @@ class Department:
         else:
             for i in self.cources:
                 print(f" [{self.courses.index(i)}] {i}")
-        print(f"{'=' * 55} \n ")
+        print(f"{'=' * 55} \n\n ")
 
 
     def list_all_lecturers(self):
       
         """ print all courses in the department """
         
-        print(f"\n{'=' * 55}")
+        print(f"\n\n{'=' * 55}")
         print(f"  ALL LECTURERS - {self.name}")
         print(f"{'=' * 55}")
         
@@ -237,16 +237,16 @@ class Department:
             for i in self.lecturer:
         
                 print(f" [{self.lecturer.index(i)}] {i}")
-        print(f"{'=' * 55} \n ")
+        print(f"{'=' * 55} \n\n ")
 
 
     def department_summary(self):
         """ print a summary of the department """
         """ returns number of students, cources and lecturers """
         
-        print(f"\n{'=' * 55}")
+        print(f"\n\n\n{'=' * 55}")
         print(f"  DEPARTMENT   : {self.name}")
         print(f"  Students     : {len(self.students)}")
         print(f"  Cources      : {len(self.courses)}")
         print(f"  Lecturers    : {len(self.lecturers)}")
-        print(f"{'=' * 55} \n ")
+        print(f"{'=' * 55} \n\n\n")

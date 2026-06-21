@@ -32,12 +32,12 @@ class Lecturer:
         """
 
         if course_id in self.courses_taught:
-            print(f"[!] {self.name} is already assigned to the course {course_id}.")
+            print(f"\n\n[!] {self.name} is already assigned to the course {course_id}.\n\n")
 
             return False 
         
         self.courses_taught.append(course_id)
-        print(f"Course {course_id} has successfully been assigned to {self.name}")
+        print(f"\n\nCourse {course_id} has successfully been assigned to {self.name}\n\n")
 
         return True 
 
@@ -52,12 +52,12 @@ class Lecturer:
             returns true if removed, false if couse was never assigned """
         
         if course_id not in self.courses_taught:
-            print(f" [!] Course {course_id} is not assigned to {self.name}")
+            print(f" \n\n[!] Course {course_id} is not assigned to {self.name}\n\n")
 
             return False
         
         self.courses_taught.remove(course_id)
-        print(f" Course {course_id} has been removed from {self.name}'s schedule")
+        print(f" \n\nCourse {course_id} has been removed from {self.name}'s schedule\n\n")
 
 
 #--------------------------------------------------------------
@@ -79,7 +79,7 @@ class Lecturer:
     def display_profile(self):
         """ Prints a formated profile for the lecturer """
 
-        print(f"\n{'='* 50}")
+        print(f"\n\n\n{'='* 50}")
         print(f"  LECTURER       : {self.name}")
         print(f"  ID.            : {self.lecturer_id}")
         print(f"  EMAIL          : {self.email}")
@@ -94,7 +94,7 @@ class Lecturer:
             #for loop to list each course taught with index
             for code in self.courses_taught:
                 print(f" [{self.courses_taught.index(code)}] {code}")
-        print(f"{'='* 50}\n")
+        print(f"{'='* 50}\n\n\n")
 
 
 

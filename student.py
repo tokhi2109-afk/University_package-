@@ -42,7 +42,7 @@ class Student():
             self.grades[course_id] = grade
             return True
         else:
-            print(f" [!] Invalid grade '{grade}' must be between 0 and 100")
+            print(f" \n\n[!] Invalid grade '{grade}' must be between 0 and 100\n\n")
             return False
 #--------------------------------------------------------------
 # Method 2 : get_avg_grade
@@ -105,7 +105,7 @@ class Student():
 
         """
 
-        print(f"\n{'=' * 50 }")
+        print(f"\n\n\n{'=' * 50 }")
         print(f" TRANSCRIPT -- {self.student_name} ({self.student_id})")
         print(f" EMAIL : {self.email_id}")
         print(f"{'=' * 50 }\n")
@@ -128,7 +128,7 @@ class Student():
         letter = self.get_grade_letter()
         print(f"\n{'-' * 50 }")
         print(f" Avarage Grade : {avarage}   -> ({letter})")
-        print(f"{'=' * 50 }\n")
+        print(f"{'=' * 50 }\n\n\n")
 
 #--------------------------------------------------------------
 # METHOD 5 : to_txt_row

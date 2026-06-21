@@ -36,12 +36,12 @@ class Course:
         """
         
         if student_id in self.enrolled_students:
-            print(f" [!] student {student_id} is already enrolled in {self.course_id}")
+            print(f" \n\n[!] student {student_id} is already enrolled in {self.course_id}\n\n")
 
             return False 
         
         self.enrolled_students.append(student_id)
-        print(f" Student {student_id} enrolled in course {self.course_id}")
+        print(f" \n\nStudent {student_id} enrolled in course {self.course_id}\n\n")
 
         return True
 
@@ -57,12 +57,12 @@ class Course:
         """
 
         if student_id not in self.enrolled_students:
-            print(f" [!] student {student_id} is not enrolled in course {self.course_id}")
+            print(f" \n\n[!] student {student_id} is not enrolled in course {self.course_id}\n\n")
 
             return False 
         
         self.enrolled_students.remove(student_id)
-        print(f" Student {student_id} has been removed from the course {self.course_id}")
+        print(f" \n\nStudent {student_id} has been removed from the course {self.course_id}\n\n")
 
         return True
 
@@ -77,7 +77,7 @@ class Course:
         """ assigns a lecturer to the course """
 
         self.lecturer_id = lecturer_id 
-        print(f" Lecturer {lecturer_id} has been assigned to the course {self.course_id}")
+        print(f" \n\nLecturer {lecturer_id} has been assigned to the course {self.course_id}\n\n")
 
 
 
@@ -101,7 +101,7 @@ class Course:
         """ this would print a summary of this course in the 
             diesired format """
         
-        print(f" \n {'=' * 50 }")
+        print(f" \n\n\n {'=' * 50 }")
         print(f"  Course   : {self.course_name}")
         print(f"  Code     : {self.course_id}")
         print(f"  Credits  : {self.credits}")
@@ -117,9 +117,9 @@ class Course:
             # a loop to list all enrolled students 
 
             for code in self.enrolled_students:
-                print(f" [{self.enrolled_students.index(code)}] {code}")
+                print(f" {self.enrolled_students.index(code)}] {code}")
 
-        print(f"{'=' * 50 }\n")             
+        print(f"{'=' * 50 }\n\n\n")             
 
 
 #--------------------------------------------------------------
@@ -144,7 +144,9 @@ class Course:
     def __str__(self):
         """Short readable description of the course."""
         return(
-            f"Course [{self.course_id}] {self.course_name} "
+            f" Course [{self.course_id}] {self.course_name} "
             f" | Credits: {self.credits} | Enrolled Students: {self.get_count()}"
 
             )
+    
+
