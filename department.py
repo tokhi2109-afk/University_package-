@@ -27,7 +27,7 @@ class Department:
         #use dictionaries(key -> object) for lookups by id 
         self.students = {}
         self.courses = {}
-        self.lecturer = {}
+        self.lecturers = {}
 
 
 #------------------------------------------------------------------
@@ -167,12 +167,12 @@ class Department:
     
 
     def record_grade(self, student_id, course_id, grade):
-        """ record a student's geade for a specific course
+        """ record a student's grade for a specific course
         return true if the grade was saved """
 
         student = self.get_student(student_id)
         if not student:
-            print(f" [!] Stucent '{student_id}' NOT FOUND.")
+            print(f" [!] Student '{student_id}' NOT FOUND.")
             return False 
         
         course = self.get_course(course_id)
@@ -224,13 +224,18 @@ class Department:
     def list_all_lecturers(self):
       
         """ print all courses in the department """
+        
         print(f"\n{'=' * 55}")
         print(f"  ALL LECTURERS - {self.name}")
         print(f"{'=' * 55}")
+        
         if not self.lecturers:
             print(". No Lecturers Registered Yet.")
+        
         else:
+        
             for i in self.lecturer:
+        
                 print(f" [{self.lecturer.index(i)}] {i}")
         print(f"{'=' * 55} \n ")
 
@@ -240,8 +245,8 @@ class Department:
         """ returns number of students, cources and lecturers """
         
         print(f"\n{'=' * 55}")
-        print(f"  DEPARTMENT: {self.name}")
-        print(f"  Students  : {len(self.students)}")
-        print(f"  Cources  : {len(self.Cources)}")
-        print(f"  Lecturers  : {len(self.Lecturer)}")
+        print(f"  DEPARTMENT   : {self.name}")
+        print(f"  Students     : {len(self.students)}")
+        print(f"  Cources      : {len(self.courses)}")
+        print(f"  Lecturers    : {len(self.lecturers)}")
         print(f"{'=' * 55} \n ")
