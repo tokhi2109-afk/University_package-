@@ -94,22 +94,19 @@ def get_int_input(prompt, min_val=1, max_val=10):
 #------------------------------------------------------------------------
 
 
-def student_ment(dept):
+def student_menu(dept):
     """ sub menu for all student related tasks"""
 
     while True:
-        print("\n\n--- STUDENT MENU ------------------------\n")
+        print("\n\n--- STUDENT MENU ----------------------------\n")
         print("1. Add new student.")
         print("2. Remove a student")
         print("3. View all students")
         print("4. View student transcript")
         print("0. Back to main menu")
-        print("---------------------------------------------")
-print("\n\n--- STUDENT MENU ------------------------\n")
-print("1. Add new student.")
-print("2. Remove a student")
-print("3. View all students")
-print("4. View student transcript")
-print("0. Back to main menu")
-print("---------------------------------------------\n\n")
+        print("\n---------------------------------------------\n\n")
+        
+        return
+
+        choice = input("  Enter Choice: ").strip()
 

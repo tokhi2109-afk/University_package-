@@ -197,14 +197,21 @@ class Department:
         """ print of all students in the department."""
 
         print(f"\n\n\n {'=' * 55}")
-        print(f"  ALL STUDENTS - {self.name}")
+        print(f"  ALL STUDENTS - {len(self.students)}")
         print(f"{'=' * 55}")
 
         if not self.students:
             print("   No Students Registered Yet!")
+
         else:
-            for i in self.students:
-                print(f" [{self.students.index(i)}] {i}")
+            count = 1
+            for student_id, student_obj in self.students.items():
+                print(f" [{count}] {student_id}: {student_obj.student_name}")
+                count += 1
+            
+        
+            
+            
                 
         print(f"{'=' * 55}\n\n\n")
 
@@ -213,12 +220,15 @@ class Department:
         print(f"\n\n{'=' * 55}")
         print(f"  ALL STUDENTS - {self.name}")
         print(f"{'=' * 55}")
+       
         if not self.courses:
             print(". No Courses Registered Yet.")
+        
         else:
-            for i in self.cources:
-                print(f" [{self.courses.index(i)}] {i}")
-        print(f"{'=' * 55} \n\n ")
+            count = 1
+            for course_id, course in self.courses.items():
+                print(f" [{count}] {course_id}: {course.course_name}")
+                count += 1
 
 
     def list_all_lecturers(self):
@@ -234,10 +244,10 @@ class Department:
         
         else:
         
-            for i in self.lecturer:
-        
-                print(f" [{self.lecturer.index(i)}] {i}")
-        print(f"{'=' * 55} \n\n ")
+            count = 1
+            for lecturer_id, lecturer_obj in self.lecturers.items():
+                print(f" [{count}] {lecturer_id}: {lecturer_obj.lecturer_name}")
+                count += 1
 
 
     def department_summary(self):

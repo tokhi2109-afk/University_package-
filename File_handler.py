@@ -14,7 +14,7 @@ from course import Course
 from lecturer import Lecturer
 
 
-STUDENTS_FILE = "students.txt"
+\
 COURSES_FILE = "cources.txt"
 LECTURERS_FILE = "lecturers.txt"
 
@@ -31,10 +31,11 @@ def save_students(students_dict):
     
     try:
         # "w" = write mode. overwrites the file each time we save
-        with open(STUDENTS_FILE, "W") as f:
+        with open(student.txt, "w") as f:
             for student in students_dict.values():
                 f.write(student.to_txt_row() + "\n")
-        print(f" \n\nStudents Data saved to '{STUDENTS_FILE}'.\n\n")
+        f.close()
+        print(f" \n\nStudents Data saved to '{student.txt}'.\n\n")
     
     except IOError as error:
         print(f" \n\n[!] Could Not Save Students Data: {error}\n\n")
