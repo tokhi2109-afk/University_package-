@@ -1,10 +1,8 @@
-10001|name|address|specialisation|1053
-10002|name1|address1|specialisation|
-10003|name2|address2|specialisation|
-10004|name3|address3|specialisation|
-10005|name4|address4|specialisation|
-10006|name5|address5|specialisation|
-10007|name6|address6|specialisation|
-10008|name7|address7|specialisation|
-10009|name8|address8|specialisation|
-100010|nam9|address9|specialisation|
+L001|dr. james kirk|j.kirk@uni.edu|computer science|CS101;CS102
+L002|dr. sarah chen|s.chen@uni.edu|software engineering|CS103;CS104
+L003|prof. ada lovelace|a.lovelace@uni.edu|database and networks|CS201;CS202
+L004|dr. alan turing|a.turing@uni.edu|systems and architecture|CS203;CS204
+L005|prof. grace hopper|g.hopper@uni.edu|mathematics|MA101;MA102
+L006|dr. maryam mirzakhani|m.mirzakhani@uni.edu|advanced mathematics|MA201;MA202
+L007|dr. yann lecun|y.lecun@uni.edu|artificial intelligence|AI101;AI102
+L008|prof. bruce schneier|b.schneier@uni.edu|cybersecurity|CY101;CY102

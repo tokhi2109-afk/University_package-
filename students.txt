@@ -1,8 +1,50 @@
-1001|name|email|
-1002|name1|email1|
-1003|name2|email2|
-1004|name3|email3|
-1005|name4|email4|
-1006|name5|email5|
-1007|name6|email6|
-1008|name7|email7|
+S001|alice smith|alice.smith@uni.edu|CS104:58.5;CS101:52.7;MA202:50.6;CS201:85.7
+S002|bob jones|bob.jones@uni.edu|CS103:46.6;MA102:57.0;CS203:72.8;CS101:46.5
+S003|clara diaz|clara.diaz@uni.edu|AI102:69.7;CS104:60.3
+S004|david brown|david.brown@uni.edu|CS202:68.2;MA202:60.3
+S005|emma wilson|emma.wilson@uni.edu|MA201:50.1;CS102:50.3
+S006|faisal ahmed|faisal.ahmed@uni.edu|MA101:85.1;AI101:74.5;CS101:98.5
+S007|grace taylor|grace.taylor@uni.edu|CS103:90.6;MA101:79.0;CS201:92.4
+S008|hassan johnson|hassan.johnson@uni.edu|CS203:81.4;MA202:87.5;CS102:99.2;CS101:92.0
+S009|isla white|isla.white@uni.edu|AI101:69.9;CS201:90.9
+S010|james harris|james.harris@uni.edu|MA202:56.5;CS202:59.7
+S011|kira martin|kira.martin@uni.edu|CS103:74.4;MA102:58.5;MA201:70.4;CY102:59.8
+S012|liam garcia|liam.garcia@uni.edu|CS204:87.7;MA201:57.6;CS202:46.8;AI101:62.3
+S013|maya martinez|maya.martinez@uni.edu|CS103:93.2;CS104:62.3;MA102:81.0
+S014|noah lee|noah.lee@uni.edu|CY101:52.7;CS103:86.0;CS201:74.6
+S015|olivia walker|olivia.walker@uni.edu|AI102:64.9;CY101:99.9;MA102:52.6;CS203:72.1
+S016|omar hall|omar.hall@uni.edu|CS104:79.5;CS103:88.6
+S017|priya allen|priya.allen@uni.edu|CS103:77.8;CS203:70.7;CY101:58.8
+S018|quinn young|quinn.young@uni.edu|CS101:82.5;MA201:74.5;MA202:59.7;CS102:80.3
+S019|rachel king|rachel.king@uni.edu|MA102:53.7;CS203:45.2
+S020|sam wright|sam.wright@uni.edu|MA101:72.9;CY102:50.9;AI101:79.4;CS103:91.3
+S021|tanya scott|tanya.scott@uni.edu|CS203:53.9;CS103:97.4;CS202:95.7;AI101:95.5
+S022|umar green|umar.green@uni.edu|MA201:96.1;CS204:93.3;CS101:90.7;CS102:61.9
+S023|vera baker|vera.baker@uni.edu|CS204:76.2;CY101:49.3
+S024|will adams|will.adams@uni.edu|CY102:74.3;AI102:51.9;CS102:81.3;AI101:97.1
+S025|xena nelson|xena.nelson@uni.edu|MA101:93.0;CY102:68.3
+S026|yusuf carter|yusuf.carter@uni.edu|CS203:62.1;MA202:99.7
+S027|zara mitchell|zara.mitchell@uni.edu|MA202:51.7;CS204:57.4;MA101:63.6;CY101:77.4
+S028|aaron perez|aaron.perez@uni.edu|CS204:48.9;CS101:79.7
+S029|bella roberts|bella.roberts@uni.edu|CS103:46.7;CY101:63.2
+S030|carlos turner|carlos.turner@uni.edu|CS204:56.8;CS201:52.3;MA201:96.5;CY102:76.4
+S031|diana phillips|diana.phillips@uni.edu|CS204:89.4;AI101:55.5;CY102:50.3
+S032|ethan campbell|ethan.campbell@uni.edu|MA202:70.7;CS203:85.1;CY101:82.0
+S033|fatima parker|fatima.parker@uni.edu|CS104:63.7;CS101:92.4;CS203:58.7;MA202:55.5
+S034|george evans|george.evans@uni.edu|CS201:60.3;CS203:58.7;CS103:95.8
+S035|hina edwards|hina.edwards@uni.edu|CS104:100.0;CS101:91.0;MA201:98.3
+S036|ivan collins|ivan.collins@uni.edu|CS202:71.7;CS203:56.8
+S037|julia stewart|julia.stewart@uni.edu|CS102:45.1;CS103:66.5;CS203:96.0
+S038|khalid sanchez|khalid.sanchez@uni.edu|MA102:97.7;CS203:99.7;MA202:75.6
+S039|laura morris|laura.morris@uni.edu|CY102:57.0;CS103:48.2;CS104:85.5;CS201:48.4
+S040|marcus rogers|marcus.rogers@uni.edu|CS102:71.2;CS101:95.6;MA102:74.2
+S041|nadia reed|nadia.reed@uni.edu|CS103:55.2;AI102:77.7
+S042|oscar cook|oscar.cook@uni.edu|CS204:58.5;CS203:77.7;CS102:79.1;MA102:68.1
+S043|phoebe morgan|phoebe.morgan@uni.edu|MA201:81.8;CY101:62.3;CS201:59.6;CS104:52.2
+S044|rayan bell|rayan.bell@uni.edu|MA102:96.5;CS204:45.5;CS202:79.2;AI101:76.0
+S045|sofia murphy|sofia.murphy@uni.edu|CS103:56.7;MA101:59.6
+S046|tariq bailey|tariq.bailey@uni.edu|CS103:65.3;CY101:53.7;CS104:90.9
+S047|uma rivera|uma.rivera@uni.edu|MA102:74.1;CY102:81.7;AI101:75.5;MA201:96.2
+S048|victor cooper|victor.cooper@uni.edu|CS201:51.3;CY102:50.9
+S049|wendy richardson|wendy.richardson@uni.edu|CS201:56.6;CY102:63.9;CY101:82.8;MA102:91.9
+S050|zain cox|zain.cox@uni.edu|CY102:50.1;CS201:68.3;AI102:60.2;CS101:45.2

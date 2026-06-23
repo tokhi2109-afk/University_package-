@@ -119,15 +119,15 @@ def student_menu(dept):
 
         if choice == "1":
             print("\n  — Add New Student —")
-            sid   = get_input("  Student ID  (e.g. S003): ")
+            sid   = get_input("  Student ID  (e.g. S003): ").upper()
             if sid == "//":
                 student_menu(dept)
             else:
-                name  = get_input("  Full Name              : ")
+                name  = get_input("  Full Name              : ").lower()
                 if name == "//":
                     student_menu(dept)
                 else:
-                    email = get_input("  Email Address          : ")
+                    email = get_input("  Email Address          : ").lower()
                     if email == "//":
                         student_menu(dept)
                     else:
@@ -140,7 +140,7 @@ def student_menu(dept):
             dept.list_all_students()
 
         elif choice == "3":
-            sid = get_input("  Enter Student ID: ")
+            sid = get_input("  Enter Student ID: ").upper()
             
 
             if sid == "//":
@@ -156,7 +156,7 @@ def student_menu(dept):
 
         elif choice == "4":
             while True:
-                sid = get_input("  Enter Student ID to remove: ")
+                sid = get_input("  Enter Student ID to remove: ").upper()
                 if sid == "//":
                     student_menu(dept)
                 else:
@@ -198,16 +198,16 @@ def course_menu(dept):
         if choice == "1":
             print("\n  — Add New Course —")
 
-            code    = get_input("  Course Code  (e.g. CS101)      : ")
+            code    = get_input("  Course Code  (e.g. CS101)      : ").upper()
             if code == "//":
                 course_menu(dept)
             else:
-                title   = get_input("  Course Title                   : ")
+                title   = get_input("  Course Title                   : ").lower()
 
                 if code == "//":
                     course_menu(dept)
                 else:                            
-                    credits = get_int_input("  Credits (1-10)             : ", 1, 10)
+                    credits = get_int_input("  Credits (1-10)             : ", 1, 10).lower()
 
                     if code == "//":
                         course_menu(dept)
@@ -220,7 +220,7 @@ def course_menu(dept):
 
         elif choice == "3":
             while True:
-                code = get_input("  Enter Course Code: ")
+                code = get_input("  Enter Course Code: ").upper()
                 if code == "//":
                     course_menu(dept)
                 else:
@@ -234,7 +234,7 @@ def course_menu(dept):
 
         elif choice == "4":
             while True:
-                sid = get_input("  Enter student ID: ")
+                sid = get_input("  Enter student ID: ").upper()
                 if sid == "//":
                     course_menu(dept)
                 else:
@@ -245,7 +245,7 @@ def course_menu(dept):
 
 
             while True:
-                code = get_input("  Enter Course  ID: ")
+                code = get_input("  Enter Course  ID: ").upper()
                 if code == "//":
                     course_menu(dept)
                 else:
@@ -264,7 +264,7 @@ def course_menu(dept):
             print("\n  — Record Grade —")
 
             while True:
-                sid = get_input("  Enter student ID: ")
+                sid = get_input("  Enter student ID: ").upper()
                 if sid == "//":
                     course_menu(dept)
                 else:
@@ -276,7 +276,7 @@ def course_menu(dept):
 
 
             while True:
-                code = get_input("  Enter Course  ID: ")
+                code = get_input("  Enter Course  ID: ").upper()
                 if code == "//":
                     course_menu(dept)
                 else:
@@ -298,7 +298,7 @@ def course_menu(dept):
             print("\n  - Remove a course -")
 
             while True:
-                code = get_input("  Enter Course ID: ")
+                code = get_input("  Enter Course ID: ").upper()
                 if code == "//":
                     course_menu(dept)
                 else:
@@ -341,20 +341,20 @@ def lecturer_menu(dept):
         if choice == "1":
             print("\n  — Add New Lecturer —")
 
-            lid   = get_input("  Lecturer ID  (e.g. L001): ")
+            lid   = get_input("  Lecturer ID  (e.g. L001): ").upper()
             if lid == "//":
                 lecturer_menu(dept)
             else:
 
-                name  = get_input("  Full Name               : ")
+                name  = get_input("  Full Name               : ").lower()
                 if name == "//":
                     lecturer_menu(dept)
                 else:
-                    email = get_input("  Email Address           : ")
+                    email = get_input("  Email Address           : ").lower()
                     if email == "//":
                         lecturer_menu(dept)
                     else:
-                        spec  = get_input("  Specialisation          : ")
+                        spec  = get_input("  Specialisation          : ").lower()
                         if spec == "//":
                             lecturer_menu(dept)
                         else:
@@ -367,7 +367,7 @@ def lecturer_menu(dept):
 
         elif choice == "3":
             while True:
-                lid = get_input("  Enter Lecturer ID: ")
+                lid = get_input("  Enter Lecturer ID: ").upper()
                 if lid == "//":
                     lecturer_menu(dept)
                 else:
@@ -381,7 +381,7 @@ def lecturer_menu(dept):
         elif choice == "4":
             while True:
             
-                lid = get_input("  Enter Lecturer ID: ")
+                lid = get_input("  Enter Lecturer ID: ").upper()
                 if lid == "//":
                     lecturer_menu(dept)
                 else:
@@ -392,7 +392,7 @@ def lecturer_menu(dept):
                         print(f"  [!] No lecturer found with ID '{lid}'.")
             
             while True:
-                code = get_input("  Course Code : ")
+                code = get_input("  Course Code : ").upper()
                 if lid == "//":
                     lecturer_menu(dept)
                 else:
