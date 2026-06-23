@@ -39,27 +39,22 @@ class Department:
         
         #prevent duplicate id entry 
         if student_id in self.students:
-            print(f"  \n\n[!] Student ID '{student_id}' already exists.\n\n")
+            print(f"  \n[!] Student ID '{student_id}' already exists.\n")
             return None
         
         student = Student(student_id, student_name, email_id)
         self.students[student_id] = student
-        print(f" \n\nStudent '{student_name} has been added with ID '{student_id}'.\n\n")
+        print(f" \nStudent '{student_name} has been added with ID '{student_id}'.\n")
         return student
 
 
     #removing a student
     def remove_student(self, student_id):
         """ return true if successfully removed 
-            False if did not exist/not found """
-        
-        if student_id not in self.students:
-            print(f" \n\n[!] student ID '{student_id}' not found\n\n")
-
-            return False 
+           """
         
         removed = self.students.pop(student_id) #removes and returns the item 
-        print(f" \n\nStudent' {removed.name} removed.\n\n")
+        print(f" \nStudent' {removed.student_name} removed.\n")
 
         return True 
     
@@ -79,14 +74,26 @@ class Department:
         """ create and register a new course """
 
         if course_id in self.courses:
-            print(f" \n\n[!] Course '{course_id}' already exists.\n\n")
+            print(f" \n[!] Course '{course_id}' already exists.\n")
             return None
             
         course = Course(course_id, course_name, credits)
         self.courses[course_id] = course
-        print(f"  \n\nCourse '{course_name}' has been added.\n\n")
+        print(f"  \nCourse '{course_name}' has been added.\n")
         return course 
     
+
+    def remove_course(self, course_id):
+        """ return true if successfully removed 
+    """
+        
+        
+        
+        removed = self.courses.pop(course_id) #removes and returns the item 
+        print(f" \nStudent' {removed.course_name} removed.\n")
+
+        return True 
+
 
     def get_course(self, course_id):
         """ Search a couse by its ID"""
@@ -104,14 +111,26 @@ class Department:
 
 
         if lecturer_id in self.lecturers:
-            print(f" \n\n[!] Lecturer ID '{lecturer_id}' already exists\n\n")
+            print(f" \n[!] Lecturer ID '{lecturer_id}' already exists\n")
             return None
         
         lecturer = Lecturer(lecturer_id, name, email, specialisation)
         self.lecturers[lecturer_id] = lecturer 
-        print(f" \n\nLecturer '{name}' added with ID '{lecturer_id}\n\n")
+        print(f" \nLecturer '{name}' added with ID '{lecturer_id}\n")
         return lecturer 
     
+    def remove_lecturer (self, lecturer_id):
+        """ return true if successfully removed 
+ """
+        
+      
+        removed = self.lecturers.pop(lecturer_id) #removes and returns the item 
+        print(f" \nStudent' {removed.name} removed.\n")
+
+        return True 
+
+
+
     def get_lecturer(self, lecturer_id):
         """search a lecturer by ID """
         return self.lecturers.get(lecturer_id)
@@ -132,13 +151,6 @@ class Department:
 
         #ensure both exist before doing anything
 
-        if not student:
-            print(f" \n\n[!] Student '{student_id} NOT FOUND.\n\n")
-            return False 
-        
-        if not course:
-            print(f" \n\n[!] Course '{course_id} NOT FOUND.\n\n")
-            return False 
         
         return course.enroll_student(student_id)
     
@@ -153,13 +165,8 @@ class Department:
         course = self.get_course(course_id)
 
 
-        if not lecturer:
-            print(f" \n\n[!] Lecturer '{lecturer_id}' NOT FOUND.\n\n")
-            return False 
-        
-        if not course:
-            print(f" \n\n[!] Course '{course_id}' NOT FOUND.\n\n")
-            return False 
+
+
         
         course.assign_lecturer(lecturer_id)
         lecturer.assign_course(course_id)
@@ -171,17 +178,10 @@ class Department:
         return true if the grade was saved """
 
         student = self.get_student(student_id)
-        if not student:
-            print(f" \n\n[!] Student '{student_id}' NOT FOUND.\n\n")
-            return False 
-        
         course = self.get_course(course_id)
-        if not course:
-            print(f" \n\n[!] Course '{course_id}' NOT FOUND.\n\n")
-            return False 
         
         if student_id not in course.enrolled_students:
-            print(f" \n\n[!] Student '{student_id}' is not enrolled in '{course_id}\n\n")
+            print(f" \n[!] Student '{student_id}' is not enrolled in '{course_id}\n")
             return False
         
         return student.add_grade(course_id, grade)
@@ -196,7 +196,7 @@ class Department:
     def list_all_students(self):
         """ print of all students in the department."""
 
-        print(f"\n\n\n {'=' * 55}")
+        print(f"\n\n {'=' * 55}")
         print(f"  ALL STUDENTS - {len(self.students)}")
         print(f"{'=' * 55}")
 
@@ -210,15 +210,15 @@ class Department:
                 count += 1
             
         
+        print(f"{'=' * 55}\n\n")
             
             
                 
-        print(f"{'=' * 55}\n\n\n")
 
-    def list_all_cources(self):
+    def list_all_courses(self):
         """ print all courses in the department """
-        print(f"\n\n{'=' * 55}")
-        print(f"  ALL STUDENTS - {self.name}")
+        print(f"\n{'=' * 55}")
+        print(f"  ALL STUDENTS - {len(self.courses)}")
         print(f"{'=' * 55}")
        
         if not self.courses:
@@ -235,8 +235,8 @@ class Department:
       
         """ print all courses in the department """
         
-        print(f"\n\n{'=' * 55}")
-        print(f"  ALL LECTURERS - {self.name}")
+        print(f"\n{'=' * 55}")
+        print(f"  ALL LECTURERS - {len(self.lecturers)}")
         print(f"{'=' * 55}")
         
         if not self.lecturers:
@@ -245,8 +245,8 @@ class Department:
         else:
         
             count = 1
-            for lecturer_id, lecturer_obj in self.lecturers.items():
-                print(f" [{count}] {lecturer_id}: {lecturer_obj.lecturer_name}")
+            for lecturer_id, lecturer in self.lecturers.items():
+                print(f" [{count}] {lecturer_id}: {lecturer.name}")
                 count += 1
 
 
@@ -254,9 +254,17 @@ class Department:
         """ print a summary of the department """
         """ returns number of students, cources and lecturers """
         
-        print(f"\n\n\n{'=' * 55}")
+        print(f"\n\n{'=' * 55}")
         print(f"  DEPARTMENT   : {self.name}")
         print(f"  Students     : {len(self.students)}")
         print(f"  Cources      : {len(self.courses)}")
         print(f"  Lecturers    : {len(self.lecturers)}")
-        print(f"{'=' * 55} \n\n\n")
+        print(f"{'=' * 55} \n\n")
+
+    def check_course(self, courses):
+        def checker(user_input):
+            # Checks if the input matches existing course id
+            if user_input in courses:
+                return True
+            return False
+        return checker 

@@ -42,7 +42,7 @@ class Student():
             self.grades[course_id] = grade
             return True
         else:
-            print(f" \n\n[!] Invalid grade '{grade}' must be between 0 and 100\n\n")
+            print(f" \n[!] Invalid grade '{grade}' must be between 0 and 100\n")
             return False
 #--------------------------------------------------------------
 # Method 2 : get_avg_grade
@@ -78,8 +78,13 @@ class Student():
         
         """
 
-        score = avarage if avarage is not None else self.get_avg_grade()
-
+        # = avarage if avarage is not None else self.get_avg_grade()
+        if avarage is not None:
+            score = avarage
+        else:
+            score = self.get_avg_grade()
+        if score is None:
+            return "N/A"
 
         if score >= 90:
             return "A"
@@ -91,7 +96,7 @@ class Student():
             return "D"
         else:
             return "F"  
-        
+    
 #--------------------------------------------------------------
 # METHOD 4 : display_transcript
 #--------------------------------------------------------------
@@ -105,10 +110,10 @@ class Student():
 
         """
 
-        print(f"\n\n\n{'=' * 50 }")
+        print(f"\n\n{'=' * 50 }")
         print(f" TRANSCRIPT -- {self.student_name} ({self.student_id})")
         print(f" EMAIL : {self.email_id}")
-        print(f"{'=' * 50 }\n")
+        print(f"{'=' * 50 }0")
 
 
         if not self.grades:
@@ -128,7 +133,7 @@ class Student():
         letter = self.get_grade_letter()
         print(f"\n{'-' * 50 }")
         print(f" Avarage Grade : {avarage}   -> ({letter})")
-        print(f"{'=' * 50 }\n\n\n")
+        print(f"{'=' * 50 }\n\n")
 
 #--------------------------------------------------------------
 # METHOD 5 : to_txt_row
@@ -144,8 +149,8 @@ class Student():
         # we use | as a separator instead of comma
 
         grades_str = ""
-        for id, grade in self.grades.items():
-            grades_str = grades_str + f"{id}:{grade};"
+        for course_id, grade in self.grades.items():
+            grades_str += f"{course_id}:{grade};"
 
         if grades_str:
             grades_str = grades_str[:-1] 

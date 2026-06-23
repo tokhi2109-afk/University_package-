@@ -1,0 +1,10 @@
+10001|name|address|specialisation|1053
+10002|name1|address1|specialisation|
+10003|name2|address2|specialisation|
+10004|name3|address3|specialisation|
+10005|name4|address4|specialisation|
+10006|name5|address5|specialisation|
+10007|name6|address6|specialisation|
+10008|name7|address7|specialisation|
+10009|name8|address8|specialisation|
+100010|nam9|address9|specialisation|

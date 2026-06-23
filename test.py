@@ -27,18 +27,14 @@ def print_banner():
     print("=" * 55)
 
 
+
+
+
+
 def get_input(prompt, allow_empty=False):
     """
     Prompt the user for text input and strip whitespace.
 
-    This wraps the built-in input() to handle blank inputs gracefully.
-
-    Args:
-        prompt (str): The message shown to the user.
-        allow_empty (bool): If False, keep asking until non-empty input given.
-
-    Returns:
-        str: The cleaned input string.
     """
     while True:
         value = input(prompt).strip()
@@ -54,10 +50,6 @@ def get_float_input(prompt, min_val=0.0, max_val=100.0):
     This is an example of EXCEPTION HANDLING — we catch the error
     that occurs when someone types "abc" instead of a number.
 
-    Args:
-        prompt (str): Display message.
-        min_val (float): Minimum accepted value.
-        max_val (float): Maximum accepted value.
 
     Returns:
         float: A valid number within the range.
@@ -83,13 +75,7 @@ def get_int_input(prompt, min_val=1, max_val=10):
     """
     Prompt the user for an integer value within a range.
 
-    Args:
-        prompt (str): Display message.
-        min_val (int): Minimum accepted value.
-        max_val (int): Maximum accepted value.
-
-    Returns:
-        int: A valid integer within the range.
+    
     """
     while True:
         raw = input(prompt).strip()
@@ -111,8 +97,7 @@ def student_menu(dept):
     """
     Sub-menu for all student-related operations.
 
-    Args:
-        dept (Department): The active department object.
+    2
     """
     while True:
         print("\n── STUDENT MENU ──────────────────────────")
@@ -128,24 +113,53 @@ def student_menu(dept):
         if choice == "1":
             print("\n  — Add New Student —")
             sid   = get_input("  Student ID  (e.g. S003): ")
-            name  = get_input("  Full Name              : ")
-            email = get_input("  Email Address          : ")
-            dept.add_student(sid, name, email)
+            if sid == "//":
+                student_menu(dept)
+            else:
+                name  = get_input("  Full Name              : ")
+                if name == "//":
+                    student_menu(dept)
+                else:
+                    email = get_input("  Email Address          : ")
+                    if email == "//":
+                        student_menu(dept)
+                    else:
+
+                        dept.add_student(sid, name, email)
+
+
 
         elif choice == "2":
             dept.list_all_students()
 
         elif choice == "3":
             sid = get_input("  Enter Student ID: ")
-            student = dept.get_student(sid)
-            if student:
-                student.display_transcript()
+            
+
+            if sid == "//":
+                student_menu(dept)
             else:
-                print(f"  [!] No student found with ID '{sid}'.")
+                student = dept.get_student(sid)
+
+
+                if student:
+                    student.display_transcript()
+                else:
+                    print(f"  [!] No student found with ID '{sid}'.")
 
         elif choice == "4":
-            sid = get_input("  Enter Student ID to remove: ")
-            dept.remove_student(sid)
+            while True:
+                sid = get_input("  Enter Student ID to remove: ")
+                if sid == "//":
+                    student_menu(dept)
+                else:
+                    student = dept.get_student(sid)
+                    if student:
+                        dept.remove_student(sid) 
+                        break
+                    else:
+                        print(f"  [!] No student found with ID '{sid}'.")
+
 
         elif choice == "0":
             break   # exit this while loop → return to main menu
@@ -168,6 +182,7 @@ def course_menu(dept):
         print("  3. View course details")
         print("  4. Enrol student in course")
         print("  5. Record a student grade")
+        print("  6. Remove a course")
         print("  0. Back to main menu")
         print("──────────────────────────────────────────")
 
@@ -175,39 +190,127 @@ def course_menu(dept):
 
         if choice == "1":
             print("\n  — Add New Course —")
+
             code    = get_input("  Course Code  (e.g. CS101)      : ")
-            title   = get_input("  Course Title                   : ")
-            credits = get_int_input("  Credits (1-10)             : ", 1, 10)
-            dept.add_course(code, title, credits)
+            if code == "//":
+                course_menu(dept)
+            else:
+                title   = get_input("  Course Title                   : ")
+
+                if code == "//":
+                    course_menu(dept)
+                else:                            
+                    credits = get_int_input("  Credits (1-10)             : ", 1, 10)
+
+                    if code == "//":
+                        course_menu(dept)
+                    else:
+                        dept.add_course(code, title, credits)
+
 
         elif choice == "2":
             dept.list_all_courses()
 
         elif choice == "3":
-            code = get_input("  Enter Course Code: ")
-            course = dept.get_course(code)
-            if course:
-                course.display_info()
-            else:
-                print(f"  [!] No course found with code '{code}'.")
+            while True:
+                code = get_input("  Enter Course Code: ")
+                if code == "//":
+                    course_menu(dept)
+                else:
+                    course = dept.get_course(code)
+                    if course:
+                        course.display_info()
+                        break
+                    else:
+                        print(f"  [!] No course found with code '{code}'.")
+
 
         elif choice == "4":
-            sid  = get_input("  Student ID  : ")
-            code = get_input("  Course Code : ")
-            dept.enrol_student_in_course(sid, code)
+            while True:
+                sid = get_input("  Enter student ID: ")
+                if sid == "//":
+                    course_menu(dept)
+                else:
+                    student = dept.get_student(sid)
+                    if student:
+                        break
+                    else: print(f"  [!] No student found with code '{sid}'.")
+
+
+                while True:
+                    code = get_input("  Enter Course  ID: ")
+                    if code == "//":
+                        course_menu(dept)
+                    else:
+
+                        course = dept.get_course(code)
+                        if course:
+                            dept.course_enroll_student_(sid, code)
+                            break   
+                                
+                        else:
+                            print(f"  [!] No Course found with ID '{code}'.")
+
+
 
         elif choice == "5":
             print("\n  — Record Grade —")
-            sid   = get_input("  Student ID  : ")
-            code  = get_input("  Course Code : ")
-            grade = get_float_input("  Grade (0-100): ", 0, 100)
-            dept.record_grade(sid, code, grade)
 
+            while True:
+                sid = get_input("  Enter student ID: ")
+                if code == "//":
+                    course_menu(dept)
+                else:
+                    student = dept.get_student(sid)
+                    if student:
+                        break
+                    else:
+                        print(f"  [!] No Student found with ID '{sid}'.")
+
+
+            while True:
+                code = get_input("  Enter Course  ID: ")
+                if code == "//":
+                    course_menu(dept)
+                else:
+
+
+                    course = dept.get_course(code)
+                    if course:
+                        grade = get_float_input("  Grade (0-100): ", 0, 100)
+                        dept.record_grade(sid, code, grade)
+                        break
+                    else:
+                        print(f"  [!] No course found with ID '{code}'.")
+                
+                    
+
+
+        
+        elif choice == "6":
+            print("\n  - Remove a course -")
+
+            while True:
+                code = get_input("  Enter Course ID: ")
+                if code == "//":
+                    course_menu(dept)
+                else:
+
+                    course = dept.get_course(code)
+                    if course:
+                        dept.remove_student(code) 
+                        break
+                    else:
+                        print(f"  [!] No course found with ID '{code}'.")
+        
         elif choice == "0":
-            break
+            break   # exit this while loop → return to main menu
 
         else:
             print("  [!] Invalid choice.")
+
+
+
 
 
 def lecturer_menu(dept):
@@ -230,27 +333,72 @@ def lecturer_menu(dept):
 
         if choice == "1":
             print("\n  — Add New Lecturer —")
+
             lid   = get_input("  Lecturer ID  (e.g. L001): ")
-            name  = get_input("  Full Name               : ")
-            email = get_input("  Email Address           : ")
-            spec  = get_input("  Specialisation          : ")
-            dept.add_lecturer(lid, name, email, spec)
+            if lid == "//":
+                lecturer_menu(dept)
+            else:
+
+                name  = get_input("  Full Name               : ")
+                if name == "//":
+                    lecturer_menu(dept)
+                else:
+                    email = get_input("  Email Address           : ")
+                    if email == "//":
+                        lecturer_menu(dept)
+                    else:
+                        spec  = get_input("  Specialisation          : ")
+                        if spec == "//":
+                            lecturer_menu(dept)
+                        else:
+                            dept.add_lecturer(lid, name, email, spec)
+
+
 
         elif choice == "2":
             dept.list_all_lecturers()
 
         elif choice == "3":
-            lid = get_input("  Enter Lecturer ID: ")
-            lecturer = dept.get_lecturer(lid)
-            if lecturer:
-                lecturer.display_profile()
-            else:
-                print(f"  [!] No lecturer found with ID '{lid}'.")
+            while True:
+                lid = get_input("  Enter Lecturer ID: ")
+                if lid == "//":
+                    lecturer_menu(dept)
+                else:
+                    lecturer = dept.get_lecturer(lid)
+                    if lecturer:
+                        lecturer.display_profile()
+                        break
+                    else:
+                        print(f"  [!] No lecturer found with ID '{lid}'.")
 
         elif choice == "4":
-            lid  = get_input("  Lecturer ID : ")
-            code = get_input("  Course Code : ")
-            dept.assign_lecturer_to_course(lid, code)
+            while True:
+            
+                lid = get_input("  Enter Lecturer ID: ")
+                if lid == "//":
+                    lecturer_menu(dept)
+                else:
+                    lecturer = dept.get_lecturer(lid)
+                    if lecturer:
+                        break
+                    else:
+                        print(f"  [!] No lecturer found with ID '{lid}'.")
+            
+            while True:
+                code = get_input("  Course Code : ")
+                if lid == "//":
+                    lecturer_menu(dept)
+                else:
+                    course = dept.get_course(code)
+                    if course:
+                        dept.remove_student(code) 
+                        break
+                    else:
+                        print(f"  [!] No course found with ID '{code}'.")
+                     
+
+            dept.course_assign_lecturer(lid, code)
+
 
         elif choice == "0":
             break

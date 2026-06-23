@@ -14,8 +14,8 @@ from course import Course
 from lecturer import Lecturer
 
 
-\
-COURSES_FILE = "cources.txt"
+STUDENTS_FILE = "students.txt"
+COURSES_FILE = "courses.txt"
 LECTURERS_FILE = "lecturers.txt"
 
 
@@ -31,11 +31,11 @@ def save_students(students_dict):
     
     try:
         # "w" = write mode. overwrites the file each time we save
-        with open(student.txt, "w") as f:
+        with open(STUDENTS_FILE, "w") as f:
             for student in students_dict.values():
                 f.write(student.to_txt_row() + "\n")
         f.close()
-        print(f" \n\nStudents Data saved to '{student.txt}'.\n\n")
+        print(f" \n\nStudents Data saved to '{STUDENTS_FILE}'.\n\n")
     
     except IOError as error:
         print(f" \n\n[!] Could Not Save Students Data: {error}\n\n")
@@ -93,7 +93,7 @@ def save_all(department):
 #---------------------------------------------------------------------------------
 
 
-def load_Students(department):
+def load_students(department):
     """ read students.txt and populate the department with student objects."""
     try:
         with open(STUDENTS_FILE, "r") as f:
@@ -114,11 +114,17 @@ def load_Students(department):
 
                 student = Student(student_id, student_name, email_id)
 
-                # rebuild the grades dictionary
+                """# rebuild the grades dictionary
                 if grades_str:
                     for pair in grades_str.split(":"):
                         if ":" in pair:
-                            course_id, grade = pair.split(":", 1)
+                            course_id, grade = pair.split(":", 1)"""
+
+                department.students[student_id] = student 
+                
+                print("here are my students")
+                print(student)
+
 
         print(f"\n\n Loaded STUDENTS from file.\n\n")
 
@@ -199,11 +205,11 @@ def load_lecturers(department):
                 specialisation = parts[3] 
                 courses_str = parts[4] if len(parts) > 4 else ""
 
-                lecturer = Lecturer(lecturer_id, name, email_id. specialisation,)
+                lecturer = Lecturer(lecturer_id, name, email_id, specialisation)
 
                 if courses_str:
                     lecturer.courses_taught = [
-                        c for c in courses_str.aplit(":") if c
+                        c for c in courses_str.split(":") if c
                     ]
                 
                 department.lecturers[lecturer_id] = lecturer 
@@ -221,7 +227,7 @@ def load_all(department):
 
 
     print(f"\n Loading Saved Data....")
-    load_Students(department)
+    load_students(department)
     load_lecturers(department)
     load_courses(department)
 

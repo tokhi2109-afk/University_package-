@@ -21,7 +21,7 @@ class Course:
         self.credits = credits
         self.lecturer_id = lecturer_id
 
-        self.enrolled_students - [] # starts as an empty list 
+        self.enrolled_students = [] # starts as an empty list 
 
 
 
@@ -108,18 +108,19 @@ class Course:
 
         lecturer_display = self.lecturer_id if self.lecturer_id else "Not Assigned"
         print(f"  Lecturer : {lecturer_display}")
-        print(f"  Students : ({self.get_count()}):")
-
-
         if not self.enrolled_students:
-            print("      - No students enrolled yet")
+            print("  Students : - No students enrolled yet")
         else:
+            print(f"  Students : ({self.get_count()}):")
             # a loop to list all enrolled students 
 
             for code in self.enrolled_students:
                 print(f" {self.enrolled_students.index(code)}] {code}")
 
         print(f"{'=' * 50 }\n\n\n")             
+            
+
+
 
 
 #--------------------------------------------------------------
