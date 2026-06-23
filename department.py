@@ -149,8 +149,6 @@ class Department:
         student = self.get_student(student_id)
         course = self.get_course(course_id)
 
-        #ensure both exist before doing anything
-
         
         return course.enroll_student(student_id)
     
@@ -218,7 +216,7 @@ class Department:
     def list_all_courses(self):
         """ print all courses in the department """
         print(f"\n{'=' * 55}")
-        print(f"  ALL STUDENTS - {len(self.courses)}")
+        print(f"  ALL Courses - {len(self.courses)}")
         print(f"{'=' * 55}")
        
         if not self.courses:

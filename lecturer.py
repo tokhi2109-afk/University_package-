@@ -124,7 +124,7 @@ class Lecturer:
         """Short readable description of the course."""
         return(
             f"Lecturer [{self.lecturer_id}] {self.name} "
-            f" | {self.self.specialisation} | Courses : {self.get_workload()}"
+            f" | {self.specialisation} | Courses : {self.get_workload()}"
 
             )
 

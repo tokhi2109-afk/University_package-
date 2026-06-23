@@ -113,7 +113,7 @@ class Student():
         print(f"\n\n{'=' * 50 }")
         print(f" TRANSCRIPT -- {self.student_name} ({self.student_id})")
         print(f" EMAIL : {self.email_id}")
-        print(f"{'=' * 50 }0")
+        print(f"{'=' * 50 }")
 
 
         if not self.grades:
@@ -163,13 +163,13 @@ class Student():
 # __str__ "what python would pring when you print(student)"
 #---------------------------------------------------------------
 
-def __str__(self):
-    """
-    this function would reutrn a short summary of the student
-    """
-  
-    avg = self.get_avg_grade()
-    return (
-        f"Student [{self.student_id}] {self.name} |"
-        f" Email :{self.email_id} | Avarage Grade : {avg}"
-    )
+    def __str__(self):
+        """
+        this function would reutrn a short summary of the student
+        """
+    
+        avg = self.get_avg_grade()
+        return (
+            f"Student [{self.student_id}] {self.student_name} |"
+            f" Email :{self.email_id} | Avarage Grade : {avg}"
+        )

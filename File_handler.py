@@ -34,11 +34,11 @@ def save_students(students_dict):
         with open(STUDENTS_FILE, "w") as f:
             for student in students_dict.values():
                 f.write(student.to_txt_row() + "\n")
-        f.close()
-        print(f" \n\nStudents Data saved to '{STUDENTS_FILE}'.\n\n")
+        
+        print(f" Students Data saved to '{STUDENTS_FILE}'.")
     
     except IOError as error:
-        print(f" \n\n[!] Could Not Save Students Data: {error}\n\n")
+        print(f" \n[!] Could Not Save Students Data: {error}\n")
 
 
 
@@ -51,11 +51,11 @@ def save_courses(courses_dict):
             for course in courses_dict.values():
                 f.write(course.to_txt_row() + "\n")
 
-        print(f" \n\nCources Data Saved to '{COURSES_FILE}'.\n\n")
+        print(f" Cources Data Saved to '{COURSES_FILE}'.")
 
     
     except IOError as error:
-            print(f" \n\n[!] Could Not Save Cources Data : {error}\n\n")
+            print(f" \n[!] Could Not Save Cources Data : {error}\n")
 
 
 
@@ -69,18 +69,18 @@ def save_lecturers(lecturers_dict):
             for course in lecturers_dict.values():
                 f.write(course.to_txt_row() + "\n")
 
-        print(f" \n\nLecturer Data Saved to '{COURSES_FILE}'.\n\n")
+        print(f" Lecturer Data Saved to '{LECTURERS_FILE}'.")
 
     
     except IOError as error:
-            print(f" \n\n[!] Could Not Save Cources Data: {error}\n\n")
+            print(f" \n[!] Could Not Save Cources Data: {error}\n")
 
 
 
 def save_all(department):
     """ saves students, courses and lecturers in one call """
      
-    print(f" Saving all data..... ")
+    print(f" \nSaving all data..... ")
 
     save_students(department.students)
     save_courses(department.courses)
@@ -114,11 +114,15 @@ def load_students(department):
 
                 student = Student(student_id, student_name, email_id)
 
-                """# rebuild the grades dictionary
+
                 if grades_str:
-                    for pair in grades_str.split(":"):
+                    for pair in grades_str.split(";"):
                         if ":" in pair:
-                            course_id, grade = pair.split(":", 1)"""
+                            course_id, grade = pair.split(":", 1)
+                            try:
+                                student.grades[course_id] = float(grade)
+                            except ValueError:
+                                pass 
 
                 department.students[student_id] = student 
                 
@@ -126,13 +130,13 @@ def load_students(department):
                 print(student)
 
 
-        print(f"\n\n Loaded STUDENTS from file.\n\n")
+        print(f"\n Loaded STUDENTS from file.")
 
     except FileNotFoundError:
         #no file yet - that's fine, just nothing to load
         pass
     except IOError as error:
-        print(f" \n\n[!] could not load students: {error}\n\n")
+        print(f" \n[!] could not load students: {error}\n")
 
 
 
@@ -168,17 +172,17 @@ def load_courses(department):
 
                 if students_str:
                     course.enrolled_students = [
-                        s for s in students_str.split(":") if s 
+                        s for s in students_str.split(";") if s 
                     ]
                 
                 department.courses[Course_id] = course 
-        print(f" \n\nLoaded COURSES from file \n\n")
+        print(f" \nLoaded COURSES from file ")
 
  
     except FileNotFoundError:
         pass
     except IOError as error:
-        print(f" \n\n[!] could not load Courses: {error}\n\n")
+        print(f" \n[!] could not load Courses: {error}\n")
 
 
 
@@ -209,24 +213,24 @@ def load_lecturers(department):
 
                 if courses_str:
                     lecturer.courses_taught = [
-                        c for c in courses_str.split(":") if c
+                        c for c in courses_str.split(";") if c
                     ]
                 
                 department.lecturers[lecturer_id] = lecturer 
-        print(f" \n\nLoaded Lecturers from file \n\n")
+        print(f" Loaded Lecturers from file ")
 
  
     except FileNotFoundError:
         pass
     except IOError as error:
-        print(f" \n\n[!] could not load Lecturers: {error}\n\n")
+        print(f" \n[!] could not load Lecturers: {error}\n")
 
 
 def load_all(department):
     """ loads students, courses and lecturers all in one call"""
 
 
-    print(f"\n Loading Saved Data....")
+    print(f"\nLoading Saved Data....")
     load_students(department)
     load_lecturers(department)
     load_courses(department)

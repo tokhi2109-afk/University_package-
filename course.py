@@ -134,7 +134,7 @@ class Course:
 
         students_str = ""
         for student_id in self.enrolled_students:
-            students_str  = students_str + student_id + ":"
+            students_str  = students_str + student_id + ";"
 
         if students_str:
             students_str = students_str[:-1] 
