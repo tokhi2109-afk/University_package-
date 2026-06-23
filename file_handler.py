@@ -234,10 +234,4 @@ def load_all(department):
     load_students(department)
     load_lecturers(department)
     load_courses(department)
-
-
-
-
-
-
-
+    

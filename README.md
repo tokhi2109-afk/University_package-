@@ -79,6 +79,10 @@ This opens the interactive main menu. Use number keys to navigate.
   0. Exit
 ```
 
+
+## IMPORTANT entering // during an input, will cancel the operation 
+## and take you back to the sub menu of the operation
+
 ### Adding a Student
 Select `1 → 1`, then enter:
 - Student ID: `S004`
