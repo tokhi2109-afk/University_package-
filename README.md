@@ -39,11 +39,9 @@ university_system/
 No external libraries are required. Only the Python standard library is used.
 
 1. Clone or download this repository.
-2. Run the downloaded files in any python tool eg, pycharm or vs-code. 
 2. Navigate into the project folder:
-   ```
-   
-   ```
+3. Run the downloaded files in any python tool eg, pycharm or vs-code. 
+4. i would suggest making the terminal window bigger to fit the entire menu interface 
 
 
 ---
