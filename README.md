@@ -26,7 +26,7 @@ university_system/
 ├── student.py         # Student class
 ├── course.py          # Course class
 ├── lecturer.py        # Lecturer class
-├── file_handler.py    # CSV file read/write functions
+├── file_handler.py    # .txt file read/write functions
     ├── students.txt   # Saved student records
     ├── courses.txt    # Saved course records
     └── lecturers.txt  # Saved lecturer records
@@ -39,10 +39,10 @@ university_system/
 No external libraries are required. Only the Python standard library is used.
 
 1. Clone or download this repository.
-
+2. Run the downloaded files in any python tool eg, pycharm or vs-code. 
 2. Navigate into the project folder:
    ```
-   cd university_system
+   
    ```
 
 
