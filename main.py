@@ -193,7 +193,7 @@ def course_menu(dept):
                     print(f"  [!] No course found with code '{code}'.")
 
         elif choice == "4":
-            # Step 1 - keep asking until we get a valid student ID or //
+            
             sid = None
             while True:
                 sid = get_input("  Enter Student ID: ").upper()
@@ -208,7 +208,7 @@ def course_menu(dept):
             if sid == "//":
                 continue          # cancelled at student step, back to menu
 
-            # Step 2 - keep asking until we get a valid course code or //
+            
             while True:
                 code = get_input("  Enter Course ID: ").upper()
                 if code == "//":
@@ -223,7 +223,7 @@ def course_menu(dept):
         elif choice == "5":
             print("\n  - Record Grade -")
 
-            # Step 1 - valid student
+           
             sid = None
             while True:
                 sid = get_input("  Enter Student ID: ").upper()
@@ -238,7 +238,7 @@ def course_menu(dept):
             if sid == "//":
                 continue
 
-            # Step 2 - valid course
+            
             code = None
             while True:
                 code = get_input("  Enter Course ID: ").upper()
@@ -253,8 +253,10 @@ def course_menu(dept):
             if code == "//":
                 continue
 
-            # Step 3 - grade
+          
             grade = get_float_input("  Grade (0-100): ", 0, 100)
+            if code == "//":
+                continue
             dept.record_grade(sid, code, grade)
 
         elif choice == "6":
@@ -330,7 +332,7 @@ def lecturer_menu(dept):
                     print(f"  [!] No lecturer found with ID '{lid}'.")
 
         elif choice == "4":
-            # Step 1 - valid lecturer
+           
             lid = None
             while True:
                 lid = get_input("  Enter Lecturer ID: ").upper()
@@ -345,7 +347,7 @@ def lecturer_menu(dept):
             if lid == "//":
                 continue
 
-            # Step 2 - valid course
+            
             while True:
                 code = get_input("  Course Code: ").upper()
                 if code == "//":
