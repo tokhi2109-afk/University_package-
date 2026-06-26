@@ -119,7 +119,7 @@ Select `1 → 3`, enter a student ID to see all grades and average.
 All data is stored in plain-text .txt files inside the root folder.
 The program loads data automatically on startup and saves on command or exit.
 
-Example `students.csv`:
+Example `students.txt`:
 ```
 S001,Alice Smith,alice@uni.edu,CS101:88;MA201:75
 S002,Bob Jones,bob@uni.edu,CS101:91;CS202:79
@@ -132,13 +132,13 @@ S002,Bob Jones,bob@uni.edu,CS101:91;CS202:79
 - **Classes and OOP**: Four classes with attributes, constructors (`__init__`), and methods
 - **Dictionaries**: Used for O(1) lookups of students, courses, lecturers
 - **Lists**: Enrolled student IDs, taught course codes
-- **For loops**: Iterating collections for display and CSV output
+- **For loops**: Iterating collections for display and txt output
 - **While loops**: Menu navigation keeps running until user exits
 - **If/elif/else**: Validation, grade letter conversion, menu 
 - **try/except**: Catching `ValueError` (bad number input) and `IOError` (file errors)
 - **File**: `open()`, `.read()`, `.write()`, `.strip()`, `.split()`
 - **Modules**: Code split across 5 files; imported with `from X import Y`
-- **Docstrings**:  documented to PEP 257 standard
+- **Docstrings**:  documented to PEP 8 standard
 
 ---
 
