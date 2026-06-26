@@ -106,7 +106,7 @@ Select `1 → 3`, enter a student ID to see all grades and average.
 | Methods (4+ per class) | All class files            |
 | Loops                  | `main.py`, `department.py` |
 | Conditionals           | All files                  |
-| File I/O (CSV)         | `file_handler.py`          |
+| File  (txt)            | `file_handler.py`          |
 | Exception Handling     | `file_handler.py`, `main.py` |
 | Multiple Modules       | 5 separate `.py` files     |
 | PEP 8 + Docstrings     | All files                  |
